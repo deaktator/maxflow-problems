@@ -1,0 +1,84 @@
+c =================================================================================================
+c  R. M. Deak                    pen_all_nodes_get_matches.flow                        2014-04-30
+c =================================================================================================
+c
+c  A flow network with penalization for each node without an outbound or incoming arc.  In this 
+c  example, there is a penalty of one for each such node.  Obviously these penalties could be 
+c  anything, including a custom penalty on a per-node basis.  One example of this would be the 
+c  opposite of the maximum cost.
+c
+c  For bipartite subgraphs comprised only of nodes connected by negative-cost arcs, we can 
+c  obviously choose different penalization strategies for the two disjoint subsets of nodes when
+c  the nodes in those subsets don't have inbound or outbound arcs in the solution.  This is helpful
+c  for one-way matching (rather than two-way matching).
+c
+c  Since the total penalty for two nodes not having an arc is 2, it IS enough to overcome the 
+c  advantage of delivering fewer arcs to fewer nodes. The total cost is -2 = -1 + -1, and arcs
+c  e(2, 4) and e(3, 5) are delivered.  If we delivered arcs e(3, 4), the total cost would be 
+c  -1 = -3 + 1 + 1, which is suboptimal.
+c
+c  Notice there is only one penalty arc coming from or going to each non-source, non-sink node.
+c  This is because the match limits for each of these nodes is one.  So, either an arc can be drawn
+c  between such nodes or not.  If no arc is connected to a node, then flow must go through the 
+c  penalty arc.  If there was a potential for more matches and we wanted to only induce penalties
+c  for nodes with no outgoing or incoming arcs, then we would have two edges to/from the nodes in 
+c  question.  One arc would have a capacity of the node's flow capacity minus 1 and would have 0 
+c  cost.  The second node would have capacity 1 and whatever penalty is desired for having no arcs
+c  associated with the node.
+c
+c  The following is the graphical depiction of the flow network that is specified below.
+c
+c                                     0,1,-1
+c                   +------  2  --------------  4  ------+
+c                   |        |  0,1,1       /  /         |
+c            0,1,0  |     +--|------------/  / 0,1,-3    |  0,1,0
+c                   |   /     \ 0,1,1      /             |
+c                     /        +---------/---------\
+c         2  ====>  0 (s)       0,1,1  /            +--  1 (t)   ====>  -2
+c                     \        +-----/-------------/
+c                   |   \     /    /  0,1,1              |
+c            0,1,0  |     +--|---/-----------+           |  0,1,0
+c                   |        | /      0,1,-1  \          |
+c                   +------  3  --------------  5  ------+
+c
+c  NOTE: All edge labels are in the format:
+c
+c            <capacity lower bound> <capacity upper bound> <cost>.  
+c
+c        The labels are written above or to the side of the arcs to which they pertain.  The arcs
+c        while missing arrow heads are directed and always flow from left to right.  The flow 
+c        network has a total flow of 2 to the source, denoted s with ID 0, and -2 from the sink, 
+c        denoted t with ID 1.  Note that negative arc costs indicate arcs we'd like to see 
+c        delivered in the final solution and positive costs indicate penalties.  Arcs with zero 
+c        costs are present merely induce the proper amount of flow through nodes.
+c =================================================================================================
+
+c -------------------------------------------------------------------------------------------------
+c  Problem metadata: 6 nodes, 11 arcs, total flow of 2.
+c -------------------------------------------------------------------------------------------------
+p min 6 11
+n 0 2
+n 1 -2
+
+c -------------------------------------------------------------------------------------------------
+c  Match limits
+c -------------------------------------------------------------------------------------------------
+a 0 2 0 1 0
+a 0 3 0 1 0
+a 4 1 0 1 0
+a 5 1 0 1 0
+
+c -------------------------------------------------------------------------------------------------
+c  Scored dyads (costs are negative since we are trying to minimize the cost)
+c -------------------------------------------------------------------------------------------------
+a 2 4 0 1 -1
+a 3 4 0 1 -3
+a 3 5 0 1 -1
+
+c -------------------------------------------------------------------------------------------------
+c  penalties (costs are positive since they adversely affect the minimum cost)
+c -------------------------------------------------------------------------------------------------
+a 0 4 0 1 1
+a 0 5 0 1 1
+a 2 1 0 1 1
+a 3 1 0 1 1
