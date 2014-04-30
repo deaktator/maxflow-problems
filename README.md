@@ -1,5 +1,5 @@
-flow-formulations
-=================
+maxflow-problems
+================
 
 Some simple example flows to illustrate various optimization concepts.
 
