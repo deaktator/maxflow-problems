@@ -6,8 +6,9 @@ Some simple example flows to illustrate various optimization concepts.
 These flow files can be run through a [DIMACS](http://lpsolve.sourceforge.net/5.5/DIMACS_mcf.htm) compatible solver 
 such as [CS2](https://github.com/iveney/cs2).
 
-|| Problem || Solution ||
-| ![](https://github.com/deaktator/maxflow-problems/blob/master/images/pen_2_nodes_no_matches.png) | ![](https://github.com/deaktator/maxflow-problems/blob/master/images/pen_2_nodes_no_matches_solution.png) |
+| Problem | Solution |
+| ------- | -------- |
+| ![pen_2_nodes_no_matches](https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches.png) |  ![pen_2_nodes_no_matches_solution](https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches_solution.png) |
 
 
 
