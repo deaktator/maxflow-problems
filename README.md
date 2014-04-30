@@ -8,7 +8,7 @@ such as [CS2](https://github.com/iveney/cs2).
 
 | Problem | Solution |
 | ------- | -------- |
-| \includegraphics[height=400px]{https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches.png} | \includegraphics[height=400px]{https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches_solution.png} |
+| \includegraphics[height=400px]{https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches.png} | \includegraphics[height=2in]{https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches_solution.png} |
 
 
 ![pen_2_nodes_no_matches_solution](https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches_solution.png)
