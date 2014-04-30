@@ -8,8 +8,10 @@ such as [CS2](https://github.com/iveney/cs2).
 
 | Problem | Solution |
 | ------- | -------- |
-| ![pen_2_nodes_no_matches](https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches.png "" =400x) |  ![pen_2_nodes_no_matches_solution](https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches_solution.png "" =400x) |
+| \includegraphics[height=400px]{https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches.png} | \includegraphics[height=400px]{https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches_solution.png} |
 
+
+![pen_2_nodes_no_matches_solution](https://github.com/deaktator/maxflow-problems/raw/master/images/pen_2_nodes_no_matches_solution.png)
 
 
 ```bash
