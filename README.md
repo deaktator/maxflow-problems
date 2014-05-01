@@ -1,10 +1,38 @@
 maxflow-problems
 ================
 
+Motivation
+----------
+
 Some simple example flows to illustrate various optimization concepts.
 
 These flow files can be run through a [DIMACS](http://lpsolve.sourceforge.net/5.5/DIMACS_mcf.htm) compatible solver 
 such as [CS2](https://github.com/iveney/cs2).
+
+
+Bipartite matching with no penalization scheme
+-----------------------------------------------
+
+Let's say we want to score some dyadic data and deliver certain dyads to maximize the sum of scores while taking into account certain capacity constraints.  This can be formulated as a flow network.  Let's take for instance the following example.  We'll solve this using a single source, single sink min-cost max flow algorithm.
+
+| Problem | Solution | Legend |
+| ------- | -------- | ------ |
+| <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/no_penalties.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/no_penalties_solution.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/legend.png" width="100px" /> |
+
+In this example, there are four entities represented as nodes in the graph and there are many edges (hereafter arcs) representing various properties within the graph.  Associated with each arc is an ordered triple representing:
+
+  _minimum capacity_, _maximum capacity_, _cost_
+
+There are two different sets of arcs in this example.  The 3 green arcs represent the (scored) dyadic relationships between the associated nodes and the 4 blue arcs represent the capacities of the nodes.  That is, the capacities are the number of times a node can be involved in a dyadic relationship in the resulting solution.  Since we are interested in maximizing the sum of dyadic scores, we can represent these scores as negative costs in the min-cost max flow problem.  Because the capacity constraints shouldn't affect the sum, they have zero costs.
+
+Something interesting happens in the solution of this problem formulation.  It is better from an overall optimization perspective to reify only one of these possible relationships (arc 3 &rarr; 4) and serve only two of the entities rather than to reify the two relationships (arcs 2 &rarr; 4, 3 &rarr; 5) and serve all of the entities.  This shows that the optimization is rather Machiavellian and may not only reify less relationships in an optimal solution, but may also serve less entities.  This can be problematic, especially when those entities are patrons.
+
+
+Bipartite matching with penalties for unserved entities
+--------------------------------------------------------
+
+We can overcome the above issues by requiring the optimization to penalize solutions that have nodes with no incoming or outgoing arcs.  
+
 
 | Problem | Solution | Legend |
 | ------- | -------- | ------ |
