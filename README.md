@@ -19,6 +19,22 @@ Let's say we want to score some dyadic data and deliver certain dyads to maximiz
 | ------- | -------- | ------ |
 | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/no_penalties.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/no_penalties_solution.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/legend.png" width="100px" /> |
 
+
+```bash
+cat no_penalties.flow              \
+  | cs2 2>/dev/null                \
+  | grep -P '^f.*[^0]$'            \
+  | tr -s [:blank:]                \
+  | tr [:blank:] '\t'              \
+  | cut -f2,3                      \
+  | grep -P '[2345]\t[2345]'       \
+  | sort -n 
+```
+
+```
+3	4
+```
+
 In this example, there are four entities represented as nodes in the graph and there are many edges (hereafter arcs) representing various properties within the graph.  Associated with each arc is an ordered triple representing:
 
   _minimum capacity_, _maximum capacity_, _cost_
