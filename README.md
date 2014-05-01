@@ -35,7 +35,7 @@ cat no_penalties.flow              \
 3	4
 ```
 
-In this example, there are four entities represented as nodes in the graph and there are many edges (hereafter arcs) representing various properties within the graph.  Associated with each arc is an ordered triple representing:
+In this example, there are four entities represented as nodes {2, 3, 4, 5} in the graph and there are many edges (hereafter arcs) representing various properties within the graph.  Associated with each arc is an ordered triple representing:
 
   _minimum capacity_, _maximum capacity_, _cost_
 
