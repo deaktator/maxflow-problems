@@ -77,6 +77,10 @@ cat pen_2_nodes_no_matches.flow \
 3	4
 ```
 
+Penalties outweigh delivery of unpenalized optimum
+--------------------------------------------------
+
+
 | Problem | Solution | Legend |
 | ------- | -------- | ------ |
 | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/pen_all_nodes_get_matches.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/pen_all_nodes_get_matches_solution.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/legend.png" width="100px" /> |
@@ -96,4 +100,28 @@ cat pen_all_nodes_get_matches.flow \
 ```
 2	4
 3	5
+```
+
+Penalties work with unequal capacities the two sides of bipartite graph 
+-----------------------------------------------------------------------
+
+| Problem | Solution | Legend |
+| ------- | -------- | ------ |
+| <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/pen_0_2__1_0.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/pen_0_2__1_0_solution.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/legend.png" width="100px" /> |
+
+
+```bash
+cat pen_0_2__1_0.flow              \
+  | cs2 2>/dev/null                \
+  | grep -P '^f.*[^0]$'            \
+  | tr -s [:blank:]                \
+  | tr [:blank:] '\t'              \
+  | cut -f2,3                      \
+  | grep -P '[2345]\t[2345]'       \
+  | sort -n 
+```
+
+```
+2	5
+3	4
 ```
