@@ -127,6 +127,10 @@ cat pen_0_2__1_0.flow              \
 ```
 
 
+Opimization Equations
+---------------------
+
+
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/opt_func_sum.png)
 
 _subject to_
@@ -138,3 +142,21 @@ _subject to_
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ml_x.png)
 
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ml_y.png)
+
+
+Opimization Equations for Penalization
+--------------------------------------
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/opt_func_penalized.png)
+
+_subject to_
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_pos_scores.png)
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ind_le_score.png)
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ml_x.png)
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ml_y.png)
+
+
