@@ -125,3 +125,19 @@ cat pen_0_2__1_0.flow              \
 2	5
 3	4
 ```
+
+
+\[\begin{aligned}
+\max { \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  }  }
+\end{aligned} \]
+
+
+`\max { \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  }  }`
+
+
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
