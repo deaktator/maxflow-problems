@@ -139,8 +139,7 @@ cat pen_0_2__1_0.flow              \
 ```
 
 
-$$ \max { \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  }  } $$
+`\( \max { \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  }  } \)`
 
-$ \max { \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  }  } $
 
 
