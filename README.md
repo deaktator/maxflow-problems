@@ -21,6 +21,14 @@ Let's say we want to score some dyadic data and deliver certain dyads to maximiz
 
 
 ```bash
+# =================================================================================================
+#  Run the optimization and print out the matches.
+#
+#  cs2 runs the optimization.  Lines with matches start with 'f'.  The second column is the arc 
+#  tail and the third column is the arc head.  Since we know for this example the node IDs we are
+#  interested in are {2, 3, 4, 5}, we can ignore all others (used for applying penalties).
+# =================================================================================================
+
 cat no_penalties.flow              \
   | cs2 2>/dev/null                \
   | grep -P '^f.*[^0]$'            \
@@ -56,13 +64,6 @@ We can overcome the above issues by requiring the optimization to penalize solut
 
 
 ```bash
-# =================================================================================================
-#  Run the optimization and print out the matches.
-#
-#  cs2 runs the optimization.  Lines with matches start with 'f'.  The second column is the arc 
-#  tail and the third column is the arc head.  Since we know for this example the node IDs we are
-#  interested in are {2, 3, 4, 5}, we can ignore all others (used for applying penalties).
-# =================================================================================================
 cat pen_2_nodes_no_matches.flow \
   | cs2 2>/dev/null             \
   | grep -P '^f.*[^0]$'         \
