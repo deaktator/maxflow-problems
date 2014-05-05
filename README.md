@@ -181,8 +181,9 @@ specified as:
 
 Then we can create penalizations functions _g_<sub>_x_</sub> of the following form:
 
-So we can set _p_<sub>_x_</sub> as:
-
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/g.png)
 
+So we can set _p_<sub>_x_</sub> as:
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/p_x_func_def.png)
 
