@@ -170,8 +170,9 @@ Types of Penalization Functions
 -------------------------------
 
 Assume for each _x_ we create a penalization function _h_<sub>_x_</sub> that returns a natural number 
-and is  monotonically non-increasing from 0 to _C_<sub>_x_ and is 0 for all values at least 
-_C_<sub>_x_.  Assume that we have similar penalization functions for all _y_.  This is specified as
+and is  monotonically non-increasing from 0 to _C_<sub>_x_</sub> and is 0 for all values at least 
+_C_<sub>_x_</sub>.  Assume that we have similar penalization functions for all _y_.  This is 
+specified as:
 
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_lt_Ci.png)
 
@@ -185,7 +186,7 @@ _C_<sub>_x_.  Assume that we have similar penalization functions for all _y_.  T
 
 Then we can create penalizations functions _g_<sub>_x_</sub> of the following form:
 
-So we can set _p_<sub>_x_</sub> as
+So we can set _p_<sub>_x_</sub> as:
 
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/g.png)
 
