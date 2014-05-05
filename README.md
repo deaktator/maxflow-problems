@@ -174,14 +174,9 @@ and is  monotonically non-increasing from 0 to _C_<sub>_x_</sub> and is 0 for al
 _C_<sub>_x_</sub>.  Assume that we have similar penalization functions for all _y_.  This is 
 specified as:
 
-![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_lt_Ci.png)
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_lt_Ci.png)  ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_mono_noninc.png)
 
-![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_gte_Ci.png)
-
-![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_mono_noninc.png)
-
-![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_0.png)
-
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_gte_Ci.png)  ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_0.png)
 
 
 Then we can create penalizations functions _g_<sub>_x_</sub> of the following form:
