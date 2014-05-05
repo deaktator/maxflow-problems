@@ -4,3 +4,53 @@
 \forall x,y\quad s(x,\quad y)\ge 0
 \forall x,y\quad { I }_{ x,y }\le s(x,\quad y)
 \max { \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  } -\quad { p }_{ 0 }\left( \sum _{ x\in X }{ { I }_{ \sum _{ y\in Y }{ { I }_{ x,y } } =0 } } +\sum _{ y\in Y }{ { I }_{ \sum _{ x\in X }{ { I }_{ x,y } } =0 } }  \right) \quad -\quad { p }_{ 1 }\left( \sum _{ x\in X }{ { I }_{ \sum _{ y\in Y }{ { I }_{ x,y } } =1 } } +\sum _{ y\in Y }{ { I }_{ \sum _{ x\in X }{ { I }_{ x,y } } =1 } }  \right)  } -\dots
+
+
+
+{ C }_{ X }\left( x \right) \\ \\ g_{ x }:\quad \left\{ 0,1,2,\dots ,{ C }_{ x }-1 \right\} \rightarrow { N }\\ \\ \forall i\in \left\{ 0,1,\dots ,{ C }_{ x }-2 \right\} \\ \\ { h }_{ x }\left( i+1 \right) -{ h }_{ x }\left( i \right) \le 0\\ \\ { g }_{ x }\left( n \right) =\sum _{ i=n }^{ { C }_{ x }-1 }{ { h }_{ x }\left( i \right)  } \\ \\ p_{ x }\quad :\quad { P }\left( Y \right) \rightarrow { N }\\ \\ p_{ x }\left( \left\{ { y\in Y }|{ { I }_{ x,y }=1 } \right\}  \right) ={ g }_{ x }\left( \left| \left\{ { y\in Y }|{ { I }_{ x,y }=1 } \right\}  \right|  \right) \\ \\ p_{ X }:X\times { P }\left( Y \right) \rightarrow { N }\\ \\ \\ arg\max _{ { I }_{ X,Y } }{ \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  } -\sum _{ x\in X }{ { p }_{ x }\left( \left\{ { y\in Y }|{ { I }_{ x,y }=1 } \right\}  \right)  } -\sum _{ y\in Y }{ { p }_{ y }\left( \left\{ { x\in X }|{ { I }_{ x,y }=1 } \right\}  \right)  }  } \\ \\ \\ arg\min _{ { I }_{ X,Y } }{ \sum _{ x\in X }{ { p }_{ x }\left( \left\{ { y\in Y }|{ { I }_{ x,y }=1 } \right\}  \right)  } +\sum _{ y\in Y }{ { p }_{ y }\left( \left\{ { x\in X }|{ { I }_{ x,y }=1 } \right\}  \right)  } -\sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  }  } \\ \\ \\ g_{ x }:\quad \left\{ 0,1,2,\dots ,{ C }_{ x } \right\} \rightarrow { N }\\ \\ \forall i\in \left\{ 0,1,\dots ,{ C }_{ x }-2 \right\} \\ \\ { h }_{ x }\left( i+1 \right) -{ h }_{ x }\left( i \right) \le 0\\ \\ { g }_{ x }\left( n \right) =\sum _{ i=n }^{ { C }_{ x }-1 }{ { h }_{ x }\left( i \right)  } \\ \\ p_{ x }\quad :\quad { P }\left( Y \right) \rightarrow { N }\\ \\ p_{ x }\left( \left\{ { y\in Y }|{ { I }_{ x,y }=1 } \right\}  \right) ={ g }_{ x }\left( \left| \left\{ { y\in Y }|{ { I }_{ x,y }=1 } \right\}  \right|  \right) 
+
+%
+% argmax optimization equation
+%
+arg\max _{ { I }_{ X,Y } }{ \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  }  } 
+
+%
+% argmax optimization equation (penalized)
+%
+arg\max _{ { I }_{ X,Y } }{ \underbrace { \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  }  }_{ rewards\quad for\quad X\times Y } -\underbrace { \sum _{ x\in X }{ { p }_{ x }\left( \left\{ { y\in Y }|{ { I }_{ x,y }=1 } \right\}  \right)  }  }_{ penalties\quad on\quad x\in X } -\underbrace { \sum _{ y\in Y }{ { p }_{ y }\left( \left\{ { x\in X }|{ { I }_{ x,y }=1 } \right\}  \right)  }  }_{ penalties\quad on\quad y\in Y }  } 
+
+
+%
+% argmin optimization equation
+%
+arg\min _{ { I }_{ X,Y } }{ \underbrace { \sum _{ x\in X }{ { p }_{ x }\left( \left\{ { y\in Y }|{ { I }_{ x,y }=1 } \right\}  \right)  }  }_{ penalties\quad on\quad x\in X } +\underbrace { \sum _{ y\in Y }{ { p }_{ y }\left( \left\{ { x\in X }|{ { I }_{ x,y }=1 } \right\}  \right)  }  }_{ penalties\quad on\quad y\in Y } -\underbrace { \sum _{ x\in X }{ \sum _{ y\in Y }{ { I }_{ x,y }s\left( x,y \right)  }  }  }_{ rewards\quad for\quad X\times Y }  } 
+
+
+%
+% equations for h_x
+%
+\forall i\in N,\quad i<{ C }_{ x }
+
+{ h }_{ x }\left( i+1 \right) -{ h }_{ x }\left( i \right) \le 0
+
+\forall i\in { N },\quad i\ge { C }_{ x }
+
+{ h }_{ x }\left( i \right) =0
+
+
+%
+% g_x
+%
+{ g }_{ x }\left( n \right) =\sum _{ i=n }^{ { C }_{ x }-1 }{ { h }_{ x }\left( i \right)  } 
+
+
+%
+% p_x
+%
+p_{ x }:\quad { \mathcal{P} }\left( Y \right) \rightarrow { \mathbb{N} }
+
+
+%
+% p_y
+%
+p_{ y }:\quad { \mathcal{P} }\left( X \right) \rightarrow { \mathbb{N} }

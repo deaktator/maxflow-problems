@@ -128,15 +128,12 @@ cat pen_0_2__1_0.flow              \
 ```
 
 
-Opimization Equations
----------------------
+Optimization Equations
+----------------------
 
-
-![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/opt_func_sum.png)
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/opt_func_argmax.png)
 
 _subject to_
-
-![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_pos_scores.png)
 
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ind_le_score.png)
 
@@ -145,19 +142,51 @@ _subject to_
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ml_y.png)
 
 
-Opimization Equations for Penalization
---------------------------------------
+Optimization Equations for Penalization
+---------------------------------------
 
-![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/opt_func_penalized.png)
+Assuming penalization functions _p_<sub>_x_</sub> and _p_<sub>_x_</sub> have the following form: 
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/p_x_func.png)
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/p_y_func.png)
+
+where _P_(_X_) represents the the powerset of _X_, and _N_ represents the set of natural numbers,
+we can create a penalized version of the optimization function as follows:
+
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/opt_func_argmax_penalized.png)
 
 _subject to_
-
-![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_pos_scores.png)
 
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ind_le_score.png)
 
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ml_x.png)
 
 ![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_ml_y.png)
+
+
+Types of Penalization Functions
+-------------------------------
+
+Assume for each _x_ we create a penalization function _h_<sub>_x_</sub> that returns a natural number 
+and is  monotonically non-increasing from 0 to _C_<sub>_x_ and is 0 for all values at least 
+_C_<sub>_x_.  Assume that we have similar penalization functions for all _y_.  This is specified as
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_lt_Ci.png)
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_gte_Ci.png)
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_mono_noninc.png)
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/constraint_h_0.png)
+
+
+
+Then we can create penalizations functions _g_<sub>_x_</sub> of the following form:
+
+So we can set _p_<sub>_x_</sub> as
+
+![](https://github.com/deaktator/maxflow-problems/raw/master/images/eqs/g.png)
 
 
