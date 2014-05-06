@@ -151,6 +151,33 @@ cat pen_0_2__1_0.flow              \
 3	4
 ```
 
+Max Number of Relationships Delivered
+-------------------------------------
+
+To determine the maximum number of relationships that can be produced, don't incorporate any 
+penalties and set all costs to a constant, for instance -1.
+
+| Problem | Solution | Legend |
+| ------- | -------- | ------ |
+| <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/all_one.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/pen_all_nodes_get_matches_solution.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/legend.png" width="100px" /> |
+
+```bash
+cat all_one.flow                   \
+  | cs2 2>/dev/null                \
+  | grep -P '^f.*[^0]$'            \
+  | tr -s [:blank:]                \
+  | tr [:blank:] '\t'              \
+  | cut -f2,3                      \
+  | grep -P '[2345]\t[2345]'       \
+  | wc -l                          \
+  | sed 's/^ *//g'  
+```
+
+```
+2
+```
+
+
 Optimization Equations
 ----------------------
 
