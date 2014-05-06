@@ -224,10 +224,10 @@ Algorithm for Penalized Min-Cost Max Flow
 2. Create a source and sink node.  Construct an arc between the source and each _x_ &isin; _X_
    with cost 0, min capacity 0 and max capacity _C_<sub>_x_</sub>.  Construct an arc between 
    each _y_ &isin; _Y_ and the sink with cost 0, min capacity 0 and max capacity _C_<sub>_y_</sub>.  
-3. For each _i_ from 0 ... _C_<sub>_x_</sub>, construct an arc from _x_ to sink with min 
-   capacity 0, max capacity 1 and cost _p_<sub>_x_</sub>(_i_).
-4. For each _i_ from 0 ... _C_<sub>_y_</sub>, construct an arc from source to _y_ with min 
-   capacity 0, max capacity 1 and cost _p_<sub>_y_</sub>(_i_).
+3. For each _x_ &isin; _X_ and each _i_ from 0 ... _C_<sub>_x_</sub>, construct an arc from _x_ to 
+   sink with min capacity 0, max capacity 1 and cost _p_<sub>_x_</sub>(_i_).
+4. For each _y_ &isin; _Y_ and each _i_ from 0 ... _C_<sub>_y_</sub>, construct an arc from source 
+   to _y_ with min capacity 0, max capacity 1 and cost _p_<sub>_y_</sub>(_i_).
 5. Combine all arcs from a node m to a node n with the same cost, _c_, into one new arc with min 
    capacity 0, cost _c_, and max capacity equal to the sum of the maximum capacities of all arcs in 
    questions.  Remove all of the arcs that were combined into the new arc. 
