@@ -8,7 +8,7 @@ Table of Contents
 *  [Bipartite matching with no penalization scheme](#bipartite-matching-with-no-penalization-scheme)
 *  [Bipartite matching with penalties for unserved entities](#bipartite-matching-with-penalties-for-unserved-entities)
 *  [Penalties outweigh delivery of unpenalized optimum](#penalties-outweigh-delivery-of-unpenalized-optimum)
-*  [Penalties work with unequal capacities the two sides of bipartite graph](#penalties-work-with-unequal-capacities-the-two-sides-of-bipartite-graph)
+*  [Penalties work with unequal capacities the two sides of bipartite graph](#penalties-work-with-unequal-capacities-the-two-sides-of-bipartite-graph-)
 *  [Max Number of Relationships Delivered](#max-number-of-relationships-delivered)
 *  [Optimization Equations](#optimization-equations)
 *  [Optimization Equations for Penalization](#optimization-equations-for-penalization)
@@ -82,7 +82,7 @@ rather Machiavellian and may not only reify less relationships in an optimal sol
 serve less entities.  This can be problematic, especially when those entities are paying customers.
 
 
-Bipartite matching with penalties for unserved entities [bipartite-matching-with-penalties-for-unserved-entities]
+Bipartite matching with penalties for unserved entities
 --------------------------------------------------------
 
 We can overcome the above issues by requiring the optimization to penalize solutions that have 
