@@ -39,22 +39,11 @@ sink min-cost max flow algorithm.
 
 
 ```bash
-# =================================================================================================
+# ==================================================
 #  Run the optimization and print out the matches.
-#
-#  cs2 runs the optimization.  Lines with matches start with 'f'.  The second column is the arc 
-#  tail and the third column is the arc head.  Since we know for this example the node IDs we are
-#  interested in are {2, 3, 4, 5}, we can ignore all others (used for applying penalties).
-# =================================================================================================
+# ==================================================
 
-cat no_penalties.flow              \
-  | cs2 2>/dev/null                \
-  | grep -P '^f.*[^0]$'            \
-  | tr -s [:blank:]                \
-  | tr [:blank:] '\t'              \
-  | cut -f2,3                      \
-  | grep -P '[2345]\t[2345]'       \
-  | sort -n 
+./determine-matches.sh no_penalties.flow 0 1
 ```
 
 ```
@@ -96,14 +85,7 @@ appropriately but the penalties (of 1) are not enough to change the above behavi
 
 
 ```bash
-cat pen_2_nodes_no_matches.flow \
-  | cs2 2>/dev/null             \
-  | grep -P '^f.*[^0]$'         \
-  | tr -s [:blank:]             \
-  | tr [:blank:] '\t'           \
-  | cut -f2,3                   \
-  | grep -P '[2345]\t[2345]'    \
-  | sort -n 
+./determine-matches.sh pen_2_nodes_no_matches.flow 0 1
 ```
 
 ```
@@ -123,14 +105,7 @@ delivered.
 
 
 ```bash
-cat pen_all_nodes_get_matches.flow \
-  | cs2 2>/dev/null                \
-  | grep -P '^f.*[^0]$'            \
-  | tr -s [:blank:]                \
-  | tr [:blank:] '\t'              \
-  | cut -f2,3                      \
-  | grep -P '[2345]\t[2345]'       \
-  | sort -n 
+./determine-matches.sh pen_all_nodes_get_matches.flow 0 1
 ```
 
 ```
@@ -151,14 +126,7 @@ side of the graph has less restrictive constraints.
 
 
 ```bash
-cat pen_0_2__1_0.flow              \
-  | cs2 2>/dev/null                \
-  | grep -P '^f.*[^0]$'            \
-  | tr -s [:blank:]                \
-  | tr [:blank:] '\t'              \
-  | cut -f2,3                      \
-  | grep -P '[2345]\t[2345]'       \
-  | sort -n 
+./determine-matches.sh pen_0_2__1_0.flow 0 1
 ```
 
 ```
@@ -177,15 +145,7 @@ penalties and set all costs to a constant, for instance -1.
 | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/all_one.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/pen_all_nodes_get_matches_solution.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/legend.png" width="100px" /> |
 
 ```bash
-cat all_one.flow                   \
-  | cs2 2>/dev/null                \
-  | grep -P '^f.*[^0]$'            \
-  | tr -s [:blank:]                \
-  | tr [:blank:] '\t'              \
-  | cut -f2,3                      \
-  | grep -P '[2345]\t[2345]'       \
-  | wc -l                          \
-  | sed 's/^ *//g'  
+./determine-matches.sh all_one.flow 0 1 | wc -l | sed 's/^ *//g'
 ```
 
 ```
