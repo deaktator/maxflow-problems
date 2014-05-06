@@ -4,16 +4,16 @@ maxflow-problems
 Table of Contents
 -----------------
 
-[Motivation](#motivation)
-[Bipartite matching with no penalization scheme](#bipartite-matching-with-no-penalization-scheme)
-[Bipartite matching with penalties for unserved entities](#bipartite-matching-with-penalties-for-unserved-entities)
-[Penalties outweigh delivery of unpenalized optimum](#penalties-outweigh-delivery-of-unpenalized-optimum)
-[Penalties work with unequal capacities the two sides of bipartite graph](#penalties-work-with-unequal-capacities-the-two-sides-of-bipartite-graph)
-[Max Number of Relationships Delivered](#max-number-of-relationships-delivered)
-[Optimization Equations](#optimization-equations)
-[Optimization Equations for Penalization](#optimization-equations-for-penalization)
-[Types of Penalization Functions](#types-of-penalization-functions)
-[Algorithm for Penalized Min-Cost Max Flow](#algorithm-for-penalized-min-cost-max-flow)
+*  [Motivation](#motivation)
+*  [Bipartite matching with no penalization scheme](#bipartite-matching-with-no-penalization-scheme)
+*  [Bipartite matching with penalties for unserved entities](#bipartite-matching-with-penalties-for-unserved-entities)
+*  [Penalties outweigh delivery of unpenalized optimum](#penalties-outweigh-delivery-of-unpenalized-optimum)
+*  [Penalties work with unequal capacities the two sides of bipartite graph](#penalties-work-with-unequal-capacities-the-two-sides-of-bipartite-graph)
+*  [Max Number of Relationships Delivered](#max-number-of-relationships-delivered)
+*  [Optimization Equations](#optimization-equations)
+*  [Optimization Equations for Penalization](#optimization-equations-for-penalization)
+*  [Types of Penalization Functions](#types-of-penalization-functions)
+*  [Algorithm for Penalized Min-Cost Max Flow](#algorithm-for-penalized-min-cost-max-flow)
 
 
 Motivation
