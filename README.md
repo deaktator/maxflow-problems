@@ -219,7 +219,7 @@ Algorithm for Penalized Min-Cost Max Flow
 ------------------------------------------
 
 1. Create a bipartite graph between _X_ and _Y_ with arcs between _x_ and _y_ if _s_(_x_, _y_) > 0.
-   label these arcs with the negative score -_s_ and set the minimum capacity to 0 and the maximum 
+   Label these arcs with the negative score -_s_ and set the minimum capacity to 0 and the maximum 
    capacity to 1.
 2. Create a source and sink node.  Construct an arc between the source and each _x_ &isin; _X_
    with cost 0, min capacity 0 and max capacity _C_<sub>_x_</sub>.  Construct an arc between 
