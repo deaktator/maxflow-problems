@@ -71,7 +71,8 @@ Bipartite matching with penalties for unserved entities
 --------------------------------------------------------
 
 We can overcome the above issues by requiring the optimization to penalize solutions that have 
-nodes with no incoming or outgoing arcs.  
+nodes with no incoming or outgoing arcs.  In this example, the objective function is set 
+appropriately but the penalties (of 1) are not enough to change the above behavior.
 
 
 | Problem | Solution | Legend |
@@ -97,6 +98,9 @@ cat pen_2_nodes_no_matches.flow \
 Penalties outweigh delivery of unpenalized optimum
 --------------------------------------------------
 
+This is just like the above example except that the arc 3 &rarr; 4 has a cost of -3 instead of -5.
+Therefore, when the penalty is applied, it outweights the previous behavior and two matches are 
+delivered.
 
 | Problem | Solution | Legend |
 | ------- | -------- | ------ |
@@ -121,6 +125,10 @@ cat pen_all_nodes_get_matches.flow \
 
 Penalties work with unequal capacities the two sides of bipartite graph 
 -----------------------------------------------------------------------
+
+This example shows that the constraints can be unbalanced and everything still works fine.  Note
+that since the algorithm for the application of penalties is symmetric, it doesn't matter which 
+side of the graph has less restrictive constraints.
 
 | Problem | Solution | Legend |
 | ------- | -------- | ------ |
