@@ -43,7 +43,7 @@ sink min-cost max flow algorithm.
 #  Run the optimization and print out the matches.
 # ==================================================
 
-./determine-matches.sh no_penalties.flow 0 1
+cs2 < no_penalties.flow 2>/dev/null | ./determine-matches.sh 0 1
 ```
 
 ```
@@ -85,7 +85,7 @@ appropriately but the penalties (of 1) are not enough to change the above behavi
 
 
 ```bash
-./determine-matches.sh pen_2_nodes_no_matches.flow 0 1
+cs2 < pen_2_nodes_no_matches.flow 2>/dev/null | ./determine-matches.sh 0 1
 ```
 
 ```
@@ -105,7 +105,7 @@ delivered.
 
 
 ```bash
-./determine-matches.sh pen_all_nodes_get_matches.flow 0 1
+cs2 < pen_all_nodes_get_matches.flow 2>/dev/null | ./determine-matches.sh 0 1
 ```
 
 ```
@@ -126,7 +126,7 @@ side of the graph has less restrictive constraints.
 
 
 ```bash
-./determine-matches.sh pen_0_2__1_0.flow 0 1
+cs2 < pen_0_2__1_0.flow 2>/dev/null | ./determine-matches.sh 0 1
 ```
 
 ```
@@ -145,7 +145,7 @@ penalties and set all costs to a constant, for instance -1.
 | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/all_one.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/pen_all_nodes_get_matches_solution.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/legend.png" width="100px" /> |
 
 ```bash
-./determine-matches.sh all_one.flow 0 1 | wc -l | sed 's/^ *//g'
+cs2 < all_one.flow 2>/dev/null | ./num-matches.sh 0 1
 ```
 
 ```

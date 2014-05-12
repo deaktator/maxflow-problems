@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # =================================================================================================
-#  R M Deak                           determine-matches.sh                              2014-05-12
+#  R M Deak                             num-matches.sh                                2014-05-12
 # =================================================================================================
-#  Determine the matches when a min-cost max flow associated with a bipartite graph is solved.
-#  This script processes the output of a DIMACS compatible solver.  For information on the 
-#  DIMACS format, see:
+#  Determine the number of matches output by a solved min-cost max flow associated with a 
+#  bipartite graph input.  This script processes the output of a DIMACS compatible solver.  
+#  For information on the DIMACS format, see:
 # 
 #    http://lpsolve.sourceforge.net/5.5/DIMACS_mcf.htm
 # =================================================================================================
@@ -13,7 +13,7 @@
 usage() {
 (
   cat <<EOD
-usage: determine-matches.sh <source-node-ID> <sink-node-ID>
+usage: num-matches.sh <source-node-ID> <sink-node-ID>
 
 where: 
   source-node-ID   an integer ID representing the source node.
@@ -40,7 +40,6 @@ else
     | grep -P "^f\s+\d+\s+\d+\s+1(\s+-?\d+)?$" \
     | grep -vP "^f\s+${SOURCE_NODE}\s+.*$"     \
     | grep -vP "^f\s+\d+\s+${SINK_NODE}\s+.*$" \
-    | tr -s [:blank:]                          \
-    | tr [:blank:] '\t'                        \
-    | cut -f2,3
+    | wc -l                                    \
+    | sed 's/^ *//g'
 fi
