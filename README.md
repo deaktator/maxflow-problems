@@ -228,10 +228,11 @@ _g_<sub>_x_</sub>.
 | ---------------------- | ------------------ |
 | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/zero_only_penalty.png" width="350px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/const_penalty.png" width="350px" /> |
 
+
 | linearly decreasing penalties | exponentially decreasing penalties |
 | ------------------------------| ---------------------------------- |
 | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/lin_penalty.png" width="350px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/exp_penalty.png" width="350px" /> |
-
+| Notice _g_ is the set of [triangular numbers](http://en.wikipedia.org/wiki/Triangular_number). | Notice _g_ is the next item in _h_ minus 1. |
 
 Algorithm for Penalized Min-Cost Max Flow
 ------------------------------------------
