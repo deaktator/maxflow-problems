@@ -226,8 +226,8 @@ _g_<sub>_x_</sub>.
 
 | &nbsp; | &nbsp; |
 | -------| ------ |
-| <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/zero_only_penalty.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/const_penalty.png" width="300px" /> |
-| <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/lin_penalty.png" width="300px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/exp_penalty.png" width="300px" /> |
+| <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/zero_only_penalty.png" width="350px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/const_penalty.png" width="350px" /> |
+| <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/lin_penalty.png" width="350px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/exp_penalty.png" width="350px" /> |
 
 Algorithm for Penalized Min-Cost Max Flow
 ------------------------------------------
