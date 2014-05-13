@@ -224,7 +224,8 @@ This class of penalization functions is easy to incorporate into a min-cost max 
 because the penalties in _h_<sub>_x_</sub> are additive to form the penalization function 
 _g_<sub>_x_</sub>.
 
-
+| | |
+|--|--|
 | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/zero_only_penalty.png" width="400px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/const_penalty.png" width="400px" /> |
 | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/lin_penalty.png" width="400px" /> | <img src="https://github.com/deaktator/maxflow-problems/raw/master/images/exp_penalty.png" width="400px" /> |
 
