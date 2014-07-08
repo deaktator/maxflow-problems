@@ -1,0 +1,108 @@
+c =================================================================================================
+c  R. M. Deak                   non_symmetric_non_bipartite_1.flow                     2014-07-08
+c =================================================================================================
+c
+c  The goal of this flow file is to illustrate how to perform non-symmetric matching on a 
+c  non-bipartite graph.
+c
+c  This works by splitting each participant in the matching into two nodes: an inbound node and 
+c  an outbound node.  Outbound nodes (nodes with an *o* label in the diagram below) connect via 
+c  arcs to (other participant's) inbound nodes (nodes with an *i* label).  Outbound match limits 
+c  are represented as capacities on arcs from the source (S) to outbound nodes.  Inbound match 
+c  limits are represented as capacities on arcs from inbound nodes to the sink (T).
+c
+c     +------------------------------+
+c     |                              |
+c     |                              v
+c     |         1o ----------------> 2i <---------+
+c     |          ^                   |            |
+c     |   1i     | <- 1's OUT        |     2o     |
+c     |          |    match limit    |            |
+c     |          |                   v <- 2's IN  |
+c     |          S -  -overflow-  -> T    match   |
+c     |        /     \                    limit   |
+c     |      /           \                        |
+c     +-- 4o                 \             3i     |
+c                                \                |
+c               4i                   3o ----------+
+c
+c  The above (partially completed) diagram shows how data flows from the source to outbound nodes,
+c  from outbound nodes to inbound nodes, and from inbound nodes to the sink.  Note the all edges 
+c  from outbound nodes to inbound nodes implicitly have a minimum capacity of 0 and a maximum 
+c  capacity of 1.
+c
+c  Nodes in example:
+c
+c     N	ID	Description
+c     0	S	source
+c     1	T	sink
+c     2	1o	participant 1 outbound node
+c     3	1i	participant 1 inbound node
+c     4	2o	participant 2 outbound node
+c     5	2i	participant 2 inbound node
+c     6	3o	participant 3 outbound node
+c     7	3i	participant 3 inbound node
+c     8	4o	participant 4 outbound node
+c     9	4i	participant 4 inbound node
+c
+c  Notice the pattern: 
+c   - Source is node 0
+c   - Sink is node 0
+c   - The ith participant's outbound node is node i * 2
+c   - The ith participant's inbound node is node  i * 2 + 1
+c
+
+c -------------------------------------------------------------------------------------------------
+c  10 nodes, 21 arcs.  Total flow expected flow is the maximium of:
+c
+c   1) sum of the outbound match limits
+c   2) sum of the inbound match limits
+c
+c -------------------------------------------------------------------------------------------------
+p min 10 21
+n 0 4
+n 1 -4
+
+
+c -------------------------------------------------------------------------------------------------
+c  Outbound Match limits
+c -------------------------------------------------------------------------------------------------
+a 0 2 0 1 0
+a 0 4 0 1 0
+a 0 6 0 1 0
+a 0 8 0 1 0
+
+
+c -------------------------------------------------------------------------------------------------
+c  Inbound Match limits
+c -------------------------------------------------------------------------------------------------
+a 3 1 0 1 0
+a 5 1 0 1 0
+a 7 1 0 1 0
+a 9 1 0 1 0
+
+
+c -------------------------------------------------------------------------------------------------
+c  Scored dyads (non-symmetric)
+c -------------------------------------------------------------------------------------------------
+a 2 5 0 1 -1
+a 2 7 0 1 -1
+a 2 9 0 1 -1
+
+a 4 3 0 1 -1
+a 4 7 0 1 -1
+a 4 9 0 1 -1
+
+a 6 3 0 1 -1
+a 6 5 0 1 -1
+a 6 9 0 1 -1
+
+a 8 3 0 1 -1
+a 8 5 0 1 -1
+a 8 7 0 1 -1
+
+
+c -------------------------------------------------------------------------------------------------
+c  Overflow.  This should have capacity equal to the total flow specified 
+c -------------------------------------------------------------------------------------------------
+a 0 1 0 4 0
