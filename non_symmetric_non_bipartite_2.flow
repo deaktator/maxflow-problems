@@ -47,7 +47,7 @@ c     9	4i	participant 4 inbound node
 c
 c  Notice the pattern: 
 c   - Source is node 0
-c   - Sink is node 0
+c   - Sink is node 1
 c   - The ith participant's outbound node is node i * 2
 c   - The ith participant's inbound node is node  i * 2 + 1
 c
