@@ -1,0 +1,109 @@
+c ============================================================================
+c  R. M. Deak      non_bipartite_4_item_fully_connected.flow       2014-07-09
+c ============================================================================
+c
+c  Setup: 
+c    10 nodes, 19 edges = |E| + 3*|V|+1 = 6 + 3*4+1. 
+c    Max number of pairs: 6 = binomial(4, 2).
+c
+c    The flow could have been infinity and -infinity, i.e. 1000, -1000.
+c    However there's no point adding additional flow in a small network. 
+c    In a larger network, this can be easier but is sloppy.
+c
+c    Nodes are set up so that doing an integer division by 2 on the node
+c    IDs gives the final node IDs.  The bijection between IDs and letters
+c    is: A <-> 1, B <-> 2, C <-> 3, D <-> 4.
+c
+c    Nodes in graph:   (s,0), (t,1), (Ai,2), (Ao,3), (Bi,4), 
+c                      (Bo,5), (Ci,6), (Co,7), (Di,8), (Do,9)
+c
+c    Nodes in output:  (A,1), (B,2), (C,3), (D,4)
+c
+c  Run with:
+c    cs2 < non-bipartite/non_bipartite_4_item_fully_connected.flow 2>/dev/null |\
+c    determine-matches-non-bipartite.sh 0 1
+c
+c  With output: 
+c
+c    1	3
+c    1	2
+c    1	4
+c    2	3
+c    2	4
+c    3	4
+c
+c
+c                            0,3,0
+c             +---------------------------------------+
+c             |                                       |         0,3,0
+c             |                       +-------------------------------------+
+c             |                       |               |                     |
+c             |    +----+          +--+-+          +--v-+          +----+   |
+c             |    | Ai |  0,3,0   | Ao |  0,1,-1  | Ci |  0,3,0   | Co |   |
+c           +------>  2 +---------->  3 +---------->  6 +---------->  7 +-----+
+c     0,3,0 | |    +----+          ++--++          +---^+          ++---+   | | 0,3,0
+c           | |           0,1,-1    |  |   0,1,-1      |            |       | |
+c          ++-++    +---------------+  +------------+  |            |      +v-v+
+c          | s |    |                      0,1,-1   |  |     0,1,-1 |      | t |
+c  +-------+ 0 |    |                               |  |    +-------+      | 1 <-------+
+c  |       ++-++    |               +------------------+    |              +^-^+       |
+c  |        | |     |               |               |       |               | |        |
+c  |  0,3,0 | |    +v---+          ++---+          +v---+ <-+      +----+   | | 0,3,0  |
+c  |        +------> Bi +----------> Bo +----------> Di +----------> Do +-----+        |
+c  |          |    |  4 |   0,3,0  |  5 |  0,1,-1  |  8 |   0,3,0  |  9 |   |          |
+c  |          |    +----+          +--+-+          +--^-+          +----+   |          |
+c  |          |                       |               |                     |          |
+c  |          |                       +-------------------------------------+          |
+c  |          |                                       |         0,3,0                  |
+c  |          +---------------------------------------+                                |
+c  |                          0,3,0                                                    |
+c  |                                                                                   |
+c  +-----------------------------------------------------------------------------------+
+c                                    0,infinity,0
+c
+
+p min 10 19
+n 0 6
+n 1 -6
+
+c ----------------------------------------------------------------------------
+c  Overflow: Capacity needs to be at least the number of edges not used 
+c            solely for capacity.  In this case, it needs to be at least 6.
+c            A looser bound can be used.
+c ----------------------------------------------------------------------------
+a 0 1 0 6 0
+
+c ----------------------------------------------------------------------------
+c  Item Limits: source-input, output-sink, input-output edges for limiting.
+c ----------------------------------------------------------------------------
+
+c Node A has vertex limit 3 (3 in 4th column)
+a 0 2 0 3 0
+a 3 1 0 3 0
+a 2 3 0 3 0
+
+c Node B has vertex limit 3 (3 in 4th column)
+a 0 4 0 3 0
+a 5 1 0 3 0
+a 4 5 0 3 0
+
+c Node C has vertex limit 3 (3 in 4th column)
+a 0 6 0 3 0
+a 7 1 0 3 0
+a 6 7 0 3 0
+
+c Node D has vertex limit 3 (3 in 4th column)
+a 0 8 0 3 0
+a 9 1 0 3 0
+a 8 9 0 3 0
+
+c ----------------------------------------------------------------------------
+c  Scored dyads:     A->B, A->C, A->D, B->C, B->D, C->D   
+c  or numerically    1->2, 1->3, 1->4, 2->3, 2->4, 3->4
+c ----------------------------------------------------------------------------
+a 3 4 0 1 -1
+a 3 6 0 1 -1
+a 3 8 0 1 -1
+a 5 6 0 1 -1
+a 5 8 0 1 -1
+a 7 8 0 1 -1

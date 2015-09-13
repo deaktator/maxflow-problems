@@ -37,9 +37,9 @@ else
 
   # This works for CS 4.5 and CS 4.6 versions of cs2.
   cat \
-    | grep -P "^f\s+\d+\s+\d+\s+1(\s+-?\d+)?$" \
-    | grep -vP "^f\s+${SOURCE_NODE}\s+.*$"     \
-    | grep -vP "^f\s+\d+\s+${SINK_NODE}\s+.*$" \
+    | grep -E "^f\s+\d+\s+\d+\s+1(\s+-?\d+)?$" \
+    | grep -vE "^f\s+${SOURCE_NODE}\s+.*$"     \
+    | grep -vE "^f\s+\d+\s+${SINK_NODE}\s+.*$" \
     | tr -s [:blank:]                          \
     | tr [:blank:] '\t'                        \
     | cut -f2,3
