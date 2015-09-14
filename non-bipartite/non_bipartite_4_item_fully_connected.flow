@@ -3,8 +3,9 @@ c  R. M. Deak      non_bipartite_4_item_fully_connected.flow       2014-07-09
 c ============================================================================
 c
 c  Setup: 
-c    10 nodes, 19 edges = |E| + 3*|V|+1 = 6 + 3*4+1. 
-c    Max number of pairs: 6 = binomial(4, 2).
+c    10 nodes = 2*|V| + 2 = 2*4 + 2
+c    19 edges = |E| + 3*|V| + 1 = 6 + 3*4 + 1
+c    Max number of pairs: 6 = binomial(4, 2)
 c
 c    The flow could have been infinity and -infinity, i.e. 1000, -1000.
 c    However there's no point adding additional flow in a small network. 
